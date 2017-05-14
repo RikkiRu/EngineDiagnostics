@@ -9,7 +9,7 @@ var Program = (function () {
     };
     Program.prototype.Begin = function () {
         this.Clear();
-        var container = document.getElementById("mynetwork");
+        var container = document.getElementById(Pages[Pages.Graph]);
         Program.network = new vis.Network(container, GraphData.GetData(), GraphOptions);
     };
     return Program;
@@ -17,5 +17,28 @@ var Program = (function () {
 Program.network = null;
 function Main() {
     new Program().Begin();
+}
+var Pages;
+(function (Pages) {
+    Pages[Pages["None"] = 0] = "None";
+    Pages[Pages["Graph"] = 1] = "Graph";
+    Pages[Pages["Diagnostic"] = 2] = "Diagnostic";
+    Pages[Pages["Refs"] = 3] = "Refs";
+})(Pages || (Pages = {}));
+function Navigate(page) {
+    TogglePage(Pages.Graph, false);
+    TogglePage(Pages.Diagnostic, false);
+    TogglePage(Pages.Refs, false);
+    if (Pages[page] == null) {
+        throw new Error("Page not found: " + page);
+    }
+    TogglePage(Pages[page], true);
+}
+function TogglePage(page, isOn) {
+    var e = document.getElementById(Pages[page]);
+    if (e === null) {
+        throw new Error("Page not found: " + Pages[page]);
+    }
+    e.style.display = isOn ? "block" : "none";
 }
 //# sourceMappingURL=main.js.map

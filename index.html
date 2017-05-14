@@ -16,8 +16,33 @@
 
 <body onload="Main()">
     <div class="wrapper">
-        <h2>Диагностика двигателя</h2>
-        <div id="mynetwork"></div>
+        
+        <div class="navPanel">
+            <div class="navItem" onclick="Navigate('Graph')">Обзор дерева</div>
+            <div class="navItem" onclick="Navigate('Diagnostic')">Диагностика</div>
+            <div class="navItem" onclick="Navigate('Refs')">Ссылки</div>
+        </div>
+            
+        <div id="Graph"></div>
+        
+        <div id="Diagnostic" class="hidden">
+            diagnostic
+        </div>
+        
+        <div id="Refs" class="hidden">
+            <br>
+            Автор: Солдаткин Андрей<br>
+            Группа: ПИмд-11<br>
+            2017 год<br>
+            <hr>
+            Данные по неисправностям: 
+            <a href="http://www.autoprospect.ru/vaz/21213-niva/2-1-diagnostika-neispravnostejj-dvigatelya-i-ego-sistem.html">http://www.autoprospect.ru/vaz/21213-niva/2-1-diagnostika-neispravnostejj-dvigatelya-i-ego-sistem.html</a>
+            <br>
+            Библиотека VIS для построения дерева:
+            <a href="http://visjs.org/index.html#">http://visjs.org/index.html#</a>
+            <br>
+        </div>
+        
     </div>
 
 <div id="hiddenTree">Выбор признака неисправности

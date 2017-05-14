@@ -21,13 +21,36 @@ body
      height: 90%;
 }
 
-#mynetwork
+#Graph
 {
     flex: 1;
     border: 1px solid lightgray;
 }
 
+.hidden
+{
+  display: none;
+}
+
 #hiddenTree
 {
   display: none;
+}
+
+.navPanel
+{
+  background-color: lightgray;
+}
+
+.navItem
+{
+  float: left;
+  margin: 2px;
+  cursor: pointer;
+  padding: 5px;
+}
+
+.navItem:hover
+{
+  background-color: #CEFF96;
 }
