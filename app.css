@@ -54,3 +54,41 @@ body
 {
   background-color: #CEFF96;
 }
+
+.dTitle
+{
+
+}
+
+.dItemRef
+{
+  text-align: left;
+  cursor: pointer;
+  background-color: lightblue;
+  padding: 10px;
+}
+
+.dItemRef:hover
+{
+  font-weight: bold;
+}
+
+.dItemEnd
+{
+  text-align: left;
+  cursor: default;
+  background-color: orange;
+  padding: 10px;
+}
+
+.dignosticMain
+{
+  text-align: center;
+  background-color: lightgoldenrodyellow;
+  padding: 10px;
+}
+
+.dDescr
+{
+  text-align: left;
+}

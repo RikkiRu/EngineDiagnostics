@@ -4,9 +4,9 @@ var GraphData = (function () {
             nodes: new vis.DataSet(),
             edges: new vis.DataSet(),
         };
+        this.tree = [];
         var newData = new vis.DataSet();
         var newConnect = new vis.DataSet();
-        var tree = [];
         var tstStr = document.getElementById("hiddenTree").innerHTML;
         var word = "";
         var lvl = 0;
@@ -19,15 +19,15 @@ var GraphData = (function () {
             if (char === "\n" || i === tstStr.length - 1) {
                 var parentId = -1;
                 // Searching last node with prev. level
-                for (var k = tree.length - 1; k >= 0; k--) {
-                    var kLvl = tree[k];
+                for (var k = this.tree.length - 1; k >= 0; k--) {
+                    var kLvl = this.tree[k];
                     if (kLvl.lvl === lvl - 1) {
                         parentId = kLvl.id;
                         kLvl.refs.push(idCurrent);
                         break;
                     }
                 }
-                tree.push({ id: idCurrent, lvl: lvl, refs: [] });
+                this.tree.push({ id: idCurrent, lvl: lvl, refs: [] });
                 var newNode = { id: idCurrent, label: idCurrent + ": " + word };
                 newData.add(newNode);
                 if (parentId !== -1) {
@@ -48,8 +48,8 @@ var GraphData = (function () {
                 stopTabs = true;
             }
         }
-        for (var k = 0; k < tree.length; k++) {
-            var kLvl = tree[k];
+        for (var k = 0; k < this.tree.length; k++) {
+            var kLvl = this.tree[k];
             if (kLvl.id == 0) {
                 var data = newData.get(kLvl.id);
                 data.color = "rgb(0,255,107)";
@@ -86,7 +86,13 @@ var GraphData = (function () {
     GraphData.GetData = function () {
         if (GraphData.createdData === null)
             GraphData.createdData = new GraphData();
-        return GraphData.createdData.Data;
+        return GraphData.createdData;
+    };
+    GraphData.prototype.GetTreeData = function (id) {
+        for (var i = 0; i < this.tree.length; i++) {
+            if (this.tree[i].id === id)
+                return this.tree[i];
+        }
     };
     return GraphData;
 }());

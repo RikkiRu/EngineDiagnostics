@@ -10,13 +10,14 @@ var Program = (function () {
     Program.prototype.Begin = function () {
         this.Clear();
         var container = document.getElementById(Pages[Pages.Graph]);
-        Program.network = new vis.Network(container, GraphData.GetData(), GraphOptions);
+        Program.network = new vis.Network(container, GraphData.GetData().Data, GraphOptions);
     };
     return Program;
 }());
 Program.network = null;
 function Main() {
     new Program().Begin();
+    new DiagnosticController();
 }
 var Pages;
 (function (Pages) {
@@ -39,6 +40,8 @@ function TogglePage(page, isOn) {
     if (e === null) {
         throw new Error("Page not found: " + Pages[page]);
     }
+    if (page === Pages.Diagnostic)
+        DiagnosticController.Instance.DrawCurrent();
     e.style.display = isOn ? "block" : "none";
 }
 //# sourceMappingURL=main.js.map
