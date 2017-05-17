@@ -64,7 +64,8 @@ class GraphData
 
                 this.tree.push({ id: idCurrent, lvl: lvl, refs: [] });
 
-                let newNode : vis.Node = { id: idCurrent, label: idCurrent + ": " + word };
+                //let newNode : vis.Node = { id: idCurrent, label: idCurrent + ": " + word };
+                let newNode : vis.Node = { id: idCurrent, label: word };
                 newData.add(newNode);
 
                 if (parentId !== -1)

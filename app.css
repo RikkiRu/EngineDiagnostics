@@ -70,7 +70,7 @@ body
 
 .dItemRef:hover
 {
-  font-weight: bold;
+  background-color: lightsteelblue;
 }
 
 .dItemEnd
@@ -86,6 +86,7 @@ body
   text-align: center;
   background-color: lightgoldenrodyellow;
   padding: 10px;
+  overflow: auto;
 }
 
 .dDescr

@@ -28,7 +28,8 @@ var GraphData = (function () {
                     }
                 }
                 this.tree.push({ id: idCurrent, lvl: lvl, refs: [] });
-                var newNode = { id: idCurrent, label: idCurrent + ": " + word };
+                //let newNode : vis.Node = { id: idCurrent, label: idCurrent + ": " + word };
+                var newNode = { id: idCurrent, label: word };
                 newData.add(newNode);
                 if (parentId !== -1) {
                     var connect = { from: parentId, to: idCurrent, label: "" };

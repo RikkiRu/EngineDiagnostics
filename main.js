@@ -40,7 +40,7 @@ function TogglePage(page, isOn) {
     if (e === null) {
         throw new Error("Page not found: " + Pages[page]);
     }
-    if (page === Pages.Diagnostic)
+    if (isOn && page === Pages.Diagnostic)
         DiagnosticController.Instance.DrawCurrent();
     e.style.display = isOn ? "block" : "none";
 }
